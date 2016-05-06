@@ -2,13 +2,13 @@
 
 Package.describe({
   summary: 'Meteor sign up and sign in templates core package.',
-  version: '1.14.2',
-  name: 'useraccounts:core',
-  git: 'https://github.com/meteor-useraccounts/core.git',
+  version: '0.0.1',
+  name: 'moto:useraccounts-core-angular',
+  git: 'https://github.com/Cleanshooter/useraccounts-core-angular',
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@1.0.3');
+  api.versionsFrom('METEOR@1.3.2.4');
 
   api.use([
     'accounts-base',
@@ -18,9 +18,9 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.use([
-    'blaze',
+    'angular',
     'reactive-dict',
-    'templating',
+    'angular-templates',
     'jquery'
   ], 'client');
 
@@ -34,7 +34,7 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.imply([
-    'templating',
+    'angular-templates',
   ], ['client']);
 
   api.addFiles([
