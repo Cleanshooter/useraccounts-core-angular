@@ -2,13 +2,13 @@
 
 Package.describe({
   summary: 'Meteor sign up and sign in templates core package.',
-  version: '0.0.1',
+  version: '0.0.2',
   name: 'moto:useraccounts-core-angular',
   git: 'https://github.com/Cleanshooter/useraccounts-core-angular',
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@1.3.2.4');
+  api.versionsFrom('METEOR@1.0.3');
 
   api.use([
     'accounts-base',
@@ -25,12 +25,14 @@ Package.onUse(function(api) {
   ], 'client');
 
   api.use([
-    'http'
+    'http',
+    'pbastowski:angular-babel'
   ], 'server');
 
   api.imply([
     'accounts-base',
-    'softwarerero:accounts-t9n@1.3.3',
+    //ToDo re-add support for this later
+    //'softwarerero:accounts-t9n@1.3.3',
   ], ['client', 'server']);
 
   api.imply([
@@ -42,7 +44,7 @@ Package.onUse(function(api) {
     'lib/core.js',
     'lib/server.js',
     'lib/methods.js',
-    'lib/server_methods.js',
+    'lib/server_methods.js',    
   ], ['server']);
 
   api.addFiles([
@@ -68,18 +70,19 @@ Package.onUse(function(api) {
     'lib/templates_helpers/at_terms_link.js',
     'lib/templates_helpers/at_title.js',
     'lib/templates_helpers/at_message.js',
-    'lib/templates_helpers/ensure_signed_in.html',
-    'lib/templates_helpers/ensure_signed_in.js',
+    //'lib/templates_helpers/ensure_signed_in.html',
+    //'lib/templates_helpers/ensure_signed_in.js',
     'lib/methods.js',
   ], ['client']);
 
   api.export([
     'AccountsTemplates',
   ], ['client', 'server']);
+
 });
 
 Package.onTest(function(api) {
-  api.use('useraccounts:core@1.14.2');
+  api.use('moto:useraccounts-core-angular@0.0.2');
 
   api.use([
     'accounts-password',
